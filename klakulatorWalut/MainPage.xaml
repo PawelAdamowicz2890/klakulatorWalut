@@ -22,15 +22,16 @@
                     x:Name="kwotaEnt"
                     Text=""/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout  Spacing="18">
+            <HorizontalStackLayout  Spacing="10">
                 <Label
                     Text="otrzymasz:"/>
                 <Label
                     x:Name="wynikLbl" 
-                    Text=" 0PLN"/>
+                    Text="0PLN"/>
             </HorizontalStackLayout>
             <Label 
-                Text="kurs 1EUR = 4.55PLN"/>
+                x:Name="lblKurs"
+                Text=""/>
             <RadioButton Content="EUR"
                          x:Name="rbtnEu"
                          IsChecked="True"/>
@@ -41,7 +42,10 @@
                 Text="Przelicz"
                 Clicked="przeliczBtnClicked"
                 HorizontalOptions="Center" />
-
+            <Label
+                x:Name="lblTest"
+                Text=""/>
+            
         </VerticalStackLayout>
     </ScrollView>
 
