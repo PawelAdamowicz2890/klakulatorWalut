@@ -20,32 +20,27 @@
                     Text="kwota: "/>
                 <Entry
                     x:Name="kwotaEnt"
-                    Text=""/>
+                    Text=""
+                    WidthRequest="150"/>
             </HorizontalStackLayout>
-            <HorizontalStackLayout  Spacing="10">
-                <Label
-                    Text="otrzymasz:"/>
-                <Label
+            <Label
                     x:Name="wynikLbl" 
-                    Text="0PLN"/>
-            </HorizontalStackLayout>
+                    Text="otrzymasz: 0 PLN"/>
             <Label 
                 x:Name="lblKurs"
                 Text=""/>
-            <RadioButton Content="EUR"
-                         x:Name="rbtnEu"
-                         IsChecked="True"/>
-            <RadioButton Content="PLN"
-                        x:Name="rbtnPl"/>
-            <Button
-                x:Name="przeliczBtn"
-                Text="Przelicz"
-                Clicked="przeliczBtnClicked"
-                HorizontalOptions="Center" />
-            <Label
-                x:Name="lblTest"
-                Text=""/>
-            
+            <HorizontalStackLayout Spacing="20">
+                <Button
+                    x:Name="kupBtn"
+                    Text="Kup"
+                    Clicked="kupBtnClicked"
+                    WidthRequest="150"/>
+                <Button
+                    x:Name="sprzedajBtn"
+                    Text="Sprzedaj"
+                    Clicked="sprzedajBtnClicked"
+                    WidthRequest="150"/>
+            </HorizontalStackLayout>
         </VerticalStackLayout>
     </ScrollView>
 

@@ -9,7 +9,7 @@ namespace klakulatorWalut
     {
         public string kodWaluty { get; private set; } = "eur";
         public string waluta2 { get; private set; }
-        public string date { get; private set; } = "2023-10-11";
+        public string date { get; private set; } = DateTime.Now.ToString("yyyy-MM-dd");
         public double skup { get; private set; }
         public double sprzedaz { get; private set; }
         public Waluta(string code = "eur")
@@ -43,39 +43,50 @@ namespace klakulatorWalut
     }
     public partial class MainPage : ContentPage
     {
-        Waluta euro;
+        Waluta waluta;
         
         
 
         public MainPage()
         {
             InitializeComponent();
-            euro = new Waluta("eur");
-            lblKurs.Text = euro.waluta2 + '\n';
-            lblKurs.Text += "Skup: " + euro.skup + '\n';
-            lblKurs.Text += "Sprzedaż: " + euro.sprzedaz;
+            waluta = new Waluta("eur");
+            lblKurs.Text = waluta.waluta2 + '\n';
+            lblKurs.Text += "Skup: " + waluta.skup + '\n';
+            lblKurs.Text += "Sprzedaż: " + waluta.sprzedaz;
         }
         
-        private void przeliczBtnClicked(object sender, EventArgs e)
+        private void sprzedajBtnClicked(object sender, EventArgs e)
         {
-           
-            int kwota = int.Parse(kwotaEnt.Text);
+            string kw = kwotaEnt.Text;
+            kw=kw.Replace(".", ",");
+            double kwota = (double.TryParse(kw, out double number) ? double.Parse(kw) : kwota = 0);
             double wynik = 0;
-            string waluta = "";
-            bool czyEu = rbtnEu.IsChecked;
-            if (czyEu)
-            {
-                wynik = kwota * euro.skup;
-                waluta = "PLN";
-            }
+            string kwotaz = "";
+            if (kwota < 0)
+                wynikLbl.Text = "Nie możesz sprzedać ujemnej ilości euro";
             else
             {
-
-                wynik = kwota / euro.skup;
-                waluta = "EUR";
+                wynik = kwota * waluta.skup;
+                kwotaz = "PLN";
+                wynikLbl.Text = "otrzymasz: " + wynik.ToString("0.00") + " " + kwotaz;
             }
-            wynikLbl.Text=wynik.ToString("0.00")+waluta;
-            lblTest.Text = euro.waluta2;
+        }
+        private void kupBtnClicked(object sender, EventArgs e)
+        {
+            string kw = kwotaEnt.Text;
+            kw = kw.Replace(".", ",");
+            double kwota = (double.TryParse(kw, out double number) ? double.Parse(kw) : kwota = 0);
+            double wynik = 0;
+            string kwotaz = "";
+            if (kwota < 0)
+                wynikLbl.Text = "Nie możesz kupić ujemnej ilości euro";
+            else
+            {
+                wynik = kwota * waluta.sprzedaz;
+                kwotaz = "PLN";
+                wynikLbl.Text = "zapłacisz: " + wynik.ToString("0.00") + " " + kwotaz;
+            } 
         }
     }
 }
