@@ -37,7 +37,8 @@
                 <Entry
                     x:Name="kwotaEnt"
                     Text=""
-                    WidthRequest="150"/>
+                    WidthRequest="150"
+                    Keyboard="Numeric"/>
             </HorizontalStackLayout>
             <Label
                     x:Name="wynikLbl" 
