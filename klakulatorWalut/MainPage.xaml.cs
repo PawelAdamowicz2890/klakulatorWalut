@@ -7,13 +7,15 @@ namespace klakulatorWalut
 {
     class Waluta
     {
+        public string[] kodWalut { get; } = { "eur", "gbp", "usd", "chf", "czk" };
         public string kodWaluty { get; private set; } = "eur";
         public string waluta2 { get; private set; }
         public string date { get; private set; } = DateTime.Now.ToString("yyyy-MM-dd");
         public double skup { get; private set; }
         public double sprzedaz { get; private set; }
-        public Waluta(string code = "eur")
+        public Waluta(int i=0)
         {
+            string code = kodWalut[i];
             if (code.Length > 0)
             {
                 kodWaluty = code;
@@ -50,12 +52,16 @@ namespace klakulatorWalut
         public MainPage()
         {
             InitializeComponent();
-            waluta = new Waluta("eur");
+            walutaPck.SelectedIndex = 0;
+            
+        }
+        private void pckIndexChanged(object sender, EventArgs e)
+        {
+            waluta = new Waluta(walutaPck.SelectedIndex);
             lblKurs.Text = waluta.waluta2 + '\n';
             lblKurs.Text += "Skup: " + waluta.skup + '\n';
             lblKurs.Text += "Sprzedaż: " + waluta.sprzedaz;
         }
-        
         private void sprzedajBtnClicked(object sender, EventArgs e)
         {
             string kw = kwotaEnt.Text;

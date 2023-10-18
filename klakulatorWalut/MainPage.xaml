@@ -15,7 +15,23 @@
                 Text="Klakulator walut"
                 FontSize="32"
                 HorizontalOptions="Center" />
+            <Picker 
+                x:Name="walutaPck"
+                Title="Wybierz walutę"
+                SelectedIndex="0"
+                SelectedIndexChanged="pckIndexChanged">
+                <Picker.ItemsSource>
+                    <x:Array Type="{x:Type x:String}">
+                        <x:String>Euro</x:String>
+                        <x:String>Funt brytyjski</x:String>
+                        <x:String>dolar USA</x:String>
+                        <x:String>frank szwajcarski</x:String>
+                        <x:String>korona czeska</x:String>
+                    </x:Array>
+                </Picker.ItemsSource>
+            </Picker>
             <HorizontalStackLayout  Spacing="18">
+                
                 <Label
                     Text="kwota: "/>
                 <Entry
