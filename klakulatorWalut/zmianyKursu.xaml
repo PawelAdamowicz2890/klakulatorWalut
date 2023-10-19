@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="klakulatorWalut.zmianyKursu"
+             Title="kursy">
+    <VerticalStackLayout>
+        <Label 
+            Text="Kursy walut"
+            FontSize="32"
+            HorizontalOptions="Center" />
+        <Grid>
+            <Grid.RowDefinitions>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+                <RowDefinition/>
+            </Grid.RowDefinitions>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="135"/>
+                <ColumnDefinition Width="95"/>
+                <ColumnDefinition Width="126"/>
+            </Grid.ColumnDefinitions>
+            <Label
+                Grid.Row="0"
+                Grid.Column="0"
+                Padding="30, 30, 30, 10"
+                Text="Kod waluty"/>
+            <Label
+                Grid.Row="0"
+                Grid.Column="1"
+                Padding="30, 30, 30, 10"
+                Text="Skup"/>
+            <Label
+                Grid.Row="0"
+                Grid.Column="2"
+                Padding="30, 30, 30, 10"
+                Text="Sprzedarz"/>
+            <Label
+                Grid.Row="1"
+                Grid.Column="0"
+                Padding="30,10,0,10"
+                Text=""
+                x:Name="eurkLbl"/>
+            <Label
+                Grid.Row="2"
+                Grid.Column="0"
+                Padding="30,10,0,10"
+                Text=""
+                x:Name="gbpLbl"/>
+            <Label
+                Grid.Row="3"
+                Grid.Column="0"
+                Padding="30,10,0,10"
+                Text=""
+                x:Name="usdLbl"/>
+            <Label
+                Grid.Row="4"
+                Grid.Column="0"
+                Padding="30,10,0,10"
+                Text=""
+                x:Name="chfLbl"/>
+            <Label
+                Grid.Row="5"
+                Grid.Column="0"
+                Padding="30,10,0,10"
+                Text=""
+                x:Name="czkLbl"/>
+            <HorizontalStackLayout
+                Spacing="10"
+                Padding="30,10,0,10"
+                Grid.Row="1"
+                Grid.Column="1">
+                <Image
+                    x:Name="a1Pic"
+                    HeightRequest="20"/>
+                <Label
+                    Text=""
+                    x:Name="sk1Lbl"/>
+            </HorizontalStackLayout>
+        </Grid>
+    </VerticalStackLayout>
+</ContentPage>

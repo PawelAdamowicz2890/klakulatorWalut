@@ -13,7 +13,7 @@ namespace klakulatorWalut
         public string date { get; private set; } = DateTime.Now.ToString("yyyy-MM-dd");
         public double skup { get; private set; }
         public double sprzedaz { get; private set; }
-        public Waluta(int i=0)
+        public Waluta(int i = 0)
         {
             string code = kodWalut[i];
             if (code.Length > 0)
@@ -22,6 +22,17 @@ namespace klakulatorWalut
             }
             pobierzDane();
         }
+        public Waluta(string customDate, int i = 0)
+        {
+            date = customDate;
+            string code = kodWalut[i];
+            if (code.Length > 0)
+            {
+                kodWaluty = code;
+            }
+            pobierzDane();
+        }
+            
         private void pobierzDane()
         {
             string wynik;

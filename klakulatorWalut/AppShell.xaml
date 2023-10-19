@@ -4,11 +4,15 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
     xmlns:local="clr-namespace:klakulatorWalut"
-    Shell.FlyoutBehavior="Disabled">
+    Shell.FlyoutBehavior="Flyout">
 
     <ShellContent
-        Title="Home"
+        Title="kalkulator"
         ContentTemplate="{DataTemplate local:MainPage}"
-        Route="liMainPage" />
+        Route="MainPage" />
+    <ShellContent
+        Title="kursy"
+        ContentTemplate="{DataTemplate local:zmianyKursu}"
+        Route="zmianyKursu" />
 
 </Shell>
